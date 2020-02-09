@@ -12,7 +12,16 @@ export const clearResults = () => {
     elements.searchResPages.innerHTML = '';
 }
 
-// 'Past with tomato and spinach'
+export const highlightSelected = id => {
+    const resultsArr = Array.from(document.querySelectorAll('.results_link'));
+    resultsArr.forEach(el => {
+        el.classList.remove('result_link--active');
+    });
+    
+    document.querySelector(`a[href="#${id}"]`).classList.add('result_link--active');
+}
+
+// 'Pasta with tomato and spinach'
 const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if (title.length > limit) {
